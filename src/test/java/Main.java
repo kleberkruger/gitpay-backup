@@ -1,8 +1,11 @@
 import br.ufms.gitpay.*;
+import br.ufms.gitpay.util.Validador;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        System.out.println(Validador.validarCPF("021.357.301-65"));
 
         try {
             Usuario<PessoaFisica> u1 = new Usuario<>(new PessoaFisica("Kleber Kruger", "01234567890"), "123");
