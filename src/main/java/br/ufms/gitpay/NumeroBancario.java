@@ -3,6 +3,7 @@ package br.ufms.gitpay;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class NumeroBancario implements Comparable<NumeroBancario>, Serializable {
 
@@ -84,14 +85,13 @@ public class NumeroBancario implements Comparable<NumeroBancario>, Serializable 
      * @return o dígito verificador
      */
     private static int digito(String numero) {
-        int i = 2;
-        int sum = 0;
-        for (char c : numero.toCharArray()) {
-            int res = Integer.parseInt(String.valueOf(c)) * i;
-            sum += res > 9 ? (res - 9) : res;
-            i = i == 2 ? 1 : 2;
-        }
-        return 10 - (sum % 10);
+        int[] digitos = new StringBuilder(numero).reverse().chars().map(Character::getNumericValue).toArray();
+        int soma = IntStream.range(0, digitos.length)
+                .map(i -> i % 2 == 0 ? digitos[i] : digitos[i] * 2 > 9 ? digitos[i] * 2 - 9 : digitos[i] * 2)
+                .sum();
+
+        int digitoVerificador = 10 - (soma % 10);
+        return digitoVerificador == 10 ? 0 : digitoVerificador;
     }
 
     @Override

@@ -1,10 +1,22 @@
 package br.ufms.gitpay.util;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Validador {
 
     public static boolean validarNome(String nome) {
-        String regex = "^[a-zA-ZÀ-ÖØ-öø-ÿ]+\\s[a-zA-ZÀ-ÖØ-öø-ÿ]+$";
-        return nome.matches(regex);
+//        String regex = "^[a-zA-ZÀ-ÖØ-öø-ÿ]+\\s[a-zA-ZÀ-ÖØ-öø-ÿ]+$";
+//        return nome.matches(regex);
+
+        if (nome == null || nome.length() < 2 || nome.length() > 50) {
+            return false;
+        }
+
+        // Verifica se o nome contém apenas letras, espaços e hífens
+        Pattern pattern = Pattern.compile("^[a-zA-ZÀ-ÿ\\s-]+$");
+        Matcher matcher = pattern.matcher(nome);
+        return matcher.matches();
     }
 
     public static boolean validarUsuario(String usuario) {

@@ -21,7 +21,7 @@ public class Banco {
         if (getConta(usuario.getLogin()) != null) {
             throw new IllegalArgumentException("Usuário já cadastrado");
         }
-        ContaBancaria conta = new ContaBancaria(usuario);
+        ContaBancaria conta = new ContaPagamento(usuario);
         contas.add(conta);
 
         return conta;

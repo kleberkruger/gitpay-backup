@@ -7,7 +7,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
@@ -16,6 +15,7 @@ import java.util.Locale
 @Composable
 @Preview
 fun App() {
+
     val text = remember { mutableStateOf("") }
     val number = remember { mutableStateOf("") }
     val numberValue = remember { mutableStateOf("") }

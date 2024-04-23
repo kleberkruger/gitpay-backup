@@ -1,3 +1,4 @@
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -110,7 +111,7 @@ fun SmartTextField(
     var errorMsg: String by remember { mutableStateOf("") }
 
     OutlinedTextField(
-        modifier = Modifier.onFocusChanged {
+        modifier = Modifier.fillMaxWidth().onFocusChanged {
             if (attr.value.isNotBlank() && !it.isFocused) {
                 errorMsg = if (validateField(type, attr.value)) "" else "Valor inválido"
             }

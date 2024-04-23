@@ -5,6 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println(NumeroBancario.digito(1));
         System.out.println(Validador.validarCPF("021.357.301-65"));
 
         try {

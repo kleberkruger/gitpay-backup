@@ -26,7 +26,7 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "br.ufms.gitpay.ui.MainKt"
+        mainClass = "br.ufms.gitpay.app.GitPayAppKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)

@@ -71,4 +71,9 @@ public class ContaBancaria implements InterfaceContaBancaria {
 
         this.transacoes.add(new Transacao(TipoTransacao.TRANSFERENCIA, valor));
     }
+
+    @Override
+    public String toString() {
+        return "ContaBancaria { número: " + numero + ", usuário: " + usuario.getDados().getNome() + " }";
+    }
 }
